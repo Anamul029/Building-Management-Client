@@ -1,10 +1,39 @@
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Login = () => {
+    const {signIn}=useContext(AuthContext)
+    const handleLogin=(e)=>{
+        e.preventDefault();
+        const email=e.target.email.value;
+        const password=e.target.password.value;
+        // user login
+        signIn(email,password)
+        .then(res=>{
+            console.log(res.user)
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "User Login Successfully",
+                showConfirmButton: false,
+                timer: 1500
+              });
+        })
+        .catch(error=>{
+            console.log(error)
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Please provide currect information",
+              });
+        })
+    }
     return (
         <div className="hero min-h-screen flex flex-row-reverse justify-evenly bg-blue-50">
         <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-            <form className="card-body">
+            <form onSubmit={handleLogin} className="card-body">
                
                 <div className="form-control">
                     <label className="label">
