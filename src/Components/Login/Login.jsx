@@ -23,7 +23,7 @@ const Login = () => {
                     </label>
                 </div>
                 <div className="form-control mt-6">
-                    <button className="btn btn-primary">Register</button>
+                    <button className="btn btn-primary">Login</button>
                 </div>
                 <p className="text-center">New to our website?please <NavLink to="/signUp"><span className="font-bold text-green-700 border-b-4">Register</span></NavLink></p>
             </form>

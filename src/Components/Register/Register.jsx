@@ -1,10 +1,40 @@
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Register = () => {
+    const {createUser}=useContext(AuthContext)
+
+    // register system
+    const handleRegister=(e)=>{
+        e.preventDefault()
+        const name=e.target.name.value;
+        const email=e.target.email.value;
+        const photo=e.target.photo.value;
+        const password=e.target.password.value;
+        console.log(name,email,photo,password)
+
+        // user Registration system
+        createUser(email,password)
+        .then(res=>{
+            console.log(res.user)
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Succesfully User Created",
+                showConfirmButton: false,
+                timer: 1500
+              });
+        })
+        .catch(error=>{
+            console.log(error)
+        })
+    }
     return (
         <div className="hero min-h-screen flex flex-row-reverse justify-evenly bg-blue-50">
         <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-            <form className="card-body">
+            <form onSubmit={handleRegister} className="card-body">
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text">Name</span>

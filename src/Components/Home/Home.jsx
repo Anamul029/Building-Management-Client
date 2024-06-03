@@ -1,9 +1,11 @@
+import Slider from "./Slider";
 
 
 const Home = () => {
     return (
         <div>
-            <h3>home section</h3>
+            <Slider></Slider>
+            <h2 className="text-4xl text-center my-12"> Section Tittle</h2>
         </div>
     );
 };
