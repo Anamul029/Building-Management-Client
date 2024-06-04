@@ -1,3 +1,5 @@
+import BuildingDetail from "./BuildingDetail";
+import Location from "./Location";
 import Slider from "./Slider";
 
 
@@ -5,7 +7,8 @@ const Home = () => {
     return (
         <div>
             <Slider></Slider>
-            <h2 className="text-4xl text-center my-12"> Section Tittle</h2>
+            <BuildingDetail></BuildingDetail>
+            <Location></Location>
         </div>
     );
 };

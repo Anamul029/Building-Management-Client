@@ -2,29 +2,27 @@ import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import { LuLogIn } from "react-icons/lu";
+
 
 const NavBar = () => {
-    const { user,logOut } = useContext(AuthContext)
-    const handleLogOut=()=>{
+    const { user, logOut } = useContext(AuthContext)
+    const handleLogOut = () => {
         logOut()
-        .then(res=>{
-            Swal.fire({
-                position: "top-end",
-                icon: "success",
-                title: "User LogOut Successfully",
-                showConfirmButton: false,
-                timer: 1500
-              });
-        })
+            .then(res => {
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "User LogOut Successfully",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            })
     }
     const navlinks = <>
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to="/signUp">Register</NavLink></li>
         <li><NavLink to="/apartment">Apartment</NavLink></li>
-        {
-            !user ? <> <li><NavLink to="/login">Login</NavLink></li> </>
-            : <><li><button onClick={handleLogOut} className="btn-primary btn">LogOut</button></li></>
-        }
     </>
     return (
         <div className="navbar bg-base-100">
@@ -45,32 +43,39 @@ const NavBar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                {/* {
+                {
                     user ? <>
+
                         <div className="flex gap-2 justify-center items-center">
                             <div className="flex flex-col justify-center items-center mt-3">
-                                <div className="avatar">
+                                {/* <div className="avatar">
                                     <div className="w-12 rounded-full">
                                         <img src={user.photoURL} />
                                     </div>
+                                </div> */}
+                                {/* <h5 className="text-sm ml-3">{user.displayName}</h5> */}
+                                <div className="dropdown z-10">
+                                    <div tabIndex={0} role="button" className=""> <img className="w-16 h-16 rounded-full" src={user.photoURL} /></div>
+                                    <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+                                        <li className="mx- p-2">{user.displayName}</li>
+                                        <li><a className="bg-blue-100 mb-2">Dashboard</a></li>
+                                        <li><button onClick={handleLogOut} className="bg-red-200">LogOut</button></li>
+                                    </ul>
                                 </div>
-                                <h5 className="text-sm ml-3">{user.displayName}</h5>
                             </div>
 
-                            <a onClick={handleLogOut} className="btn">LogOut</a>
+                            {/* <a  className="btn">LogOut</a> */}
                         </div>
+
 
                     </> :
                         <>
-                            <a className="btn"><NavLink to="/login">Login</NavLink></a>
+                            <button className="bg-green-400 p-2 rounded-xl ">
+                                <NavLink to="/login">Login<LuLogIn /></NavLink>
+                            </button>
                         </>
-                } */}
+                }
 
-                <a className="btn"><NavLink to="/login"> <div className="avatar">
-                    <div className="w-12 rounded-full">
-                        <img src="https://lh3.googleusercontent.com/a/ACg8ocK1w5JV2HjffTY-OKvs-UAOE52k_Nli5FO04xg8xVSy_sgl1RrN=s396-c-no" />
-                    </div>
-                </div></NavLink></a>
 
             </div>
         </div>

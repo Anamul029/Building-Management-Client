@@ -1,10 +1,13 @@
 import { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
 
 const Login = () => {
     const {signIn}=useContext(AuthContext)
+    const navigate=useNavigate()
+    const location=useLocation()
+    const from=location.state?.from?.pathname||"/"
     const handleLogin=(e)=>{
         e.preventDefault();
         const email=e.target.email.value;
@@ -20,6 +23,7 @@ const Login = () => {
                 showConfirmButton: false,
                 timer: 1500
               });
+              navigate(from,{replace:true})
         })
         .catch(error=>{
             console.log(error)

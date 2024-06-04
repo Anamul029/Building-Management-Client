@@ -12,6 +12,7 @@ import Register from './Components/Register/Register';
 import Login from './Components/Login/Login';
 import Apartment from './Components/Apartment/Apartment';
 import AuthProvider from './Components/Provider/AuthProvider';
+import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -27,7 +28,7 @@ const router = createBrowserRouter([
       },
       {
            path:'/apartment',
-           element:<Apartment></Apartment>,
+           element:<PrivateRoute><Apartment></Apartment></PrivateRoute>,
       },
       {
         path: '/login',
