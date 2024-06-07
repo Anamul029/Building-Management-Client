@@ -13,6 +13,16 @@ import Login from './Components/Login/Login';
 import Apartment from './Components/Apartment/Apartment';
 import AuthProvider from './Components/Provider/AuthProvider';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
+import DashBoard from './Components/DashBoard/DashBoard';
+import UserProfile from './Components/Users/UserProfile';
+import ManageMember from './Components/AdminHome/ManageMember';
+import {
+  QueryClient,
+  QueryClientProvider,
+ 
+} from '@tanstack/react-query'
+import MakeAnouchment from './Components/AdminHome/MakeAnouchment';
+const queryClient = new QueryClient()
 const router = createBrowserRouter([
   {
     path: "/",
@@ -28,7 +38,7 @@ const router = createBrowserRouter([
       },
       {
            path:'/apartment',
-           element:<PrivateRoute><Apartment></Apartment></PrivateRoute>,
+           element:<Apartment></Apartment>,
       },
       {
         path: '/login',
@@ -36,10 +46,30 @@ const router = createBrowserRouter([
       }
     ]
   },
+  {
+    path:'/dashboard',
+    element:<PrivateRoute><DashBoard></DashBoard></PrivateRoute>,
+    children:[
+      {
+        path:'userProfile',
+        element:<PrivateRoute><UserProfile></UserProfile></PrivateRoute>,
+      },
+      {
+        path:'managemember',
+        element:<PrivateRoute><ManageMember></ManageMember></PrivateRoute>
+      },
+      {
+        path:'anouchment',
+        element:<MakeAnouchment></MakeAnouchment>
+      }
+    ]
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-  <AuthProvider> <RouterProvider router={router} /></AuthProvider>
+    <QueryClientProvider client={queryClient}>
+    <AuthProvider> <RouterProvider router={router} /></AuthProvider>
+  </QueryClientProvider>,
   </React.StrictMode>,
 )

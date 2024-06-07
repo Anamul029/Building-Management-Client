@@ -1,11 +1,11 @@
 import { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
 
 const Register = () => {
     const {createUser,UpdateProfile}=useContext(AuthContext)
-
+    const navigate=useNavigate()
     // register system
     const handleRegister=(e)=>{
         e.preventDefault()
@@ -27,6 +27,8 @@ const Register = () => {
                 showConfirmButton: false,
                 timer: 1500
               });
+              navigate('/')
+
         })
         .catch(error=>{
             console.log(error)
