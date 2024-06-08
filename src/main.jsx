@@ -23,6 +23,7 @@ import {
 } from '@tanstack/react-query'
 import MakeAnouchment from './Components/AdminHome/MakeAnouchment';
 import AgreementRequest from './Components/AdminHome/AgreementRequest';
+import ManageCoupon from './Components/AdminHome/ManageCoupon';
 const queryClient = new QueryClient()
 const router = createBrowserRouter([
   {
@@ -66,6 +67,10 @@ const router = createBrowserRouter([
       {
         path:'agriment',
         element:<PrivateRoute><AgreementRequest></AgreementRequest></PrivateRoute>
+      },
+      {
+        path:'coupon',
+        element:<PrivateRoute><ManageCoupon></ManageCoupon></PrivateRoute>
       }
     ]
   }

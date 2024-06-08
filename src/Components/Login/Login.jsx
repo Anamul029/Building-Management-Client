@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import SocialLogin from "./SocialLogin";
 
 const Login = () => {
     const {signIn}=useContext(AuthContext)
@@ -60,6 +61,7 @@ const Login = () => {
                 </div>
                 <p className="text-center">New to our website?please <NavLink to="/signUp"><span className="font-bold text-green-700 border-b-4">Register</span></NavLink></p>
             </form>
+            <SocialLogin></SocialLogin>
 
         </div>
         <div>
