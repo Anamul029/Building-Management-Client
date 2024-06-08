@@ -6,7 +6,7 @@ const DashBoard = () => {
     const isAdmin=true;
     return (
         <div className="flex">
-            <div className="w-64 min-h-screen bg-orange-400">
+            <div className="w-64 min-h-screen bg-blue-400">
                 <ul className="menu">
                     {
                         isAdmin ?
