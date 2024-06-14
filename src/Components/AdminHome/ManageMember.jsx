@@ -5,16 +5,10 @@ import Swal from "sweetalert2";
 
 const ManageMember = () => {
     const axiosSecure = UseAxiosSecure();
-    // const [bookings, setBooking] = useState([])
-    // axiosSecure.get('/booking')
-    //     .then(res => {
-    //         console.log(res.data)
-    //         setBooking(res.data)
-    //     })
-    const { data: bookings = [], refetch } = useQuery({
+    const { data: users = [], refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
-            const res = await axiosSecure.get('/booking');
+            const res = await axiosSecure.get('/users');
             return res.data;
         }
     })
@@ -62,7 +56,7 @@ const ManageMember = () => {
                         </thead>
                         <tbody>
                             {
-                                bookings.map((book, index) => <tr key={book._id} className="bg-base-200 my-3">
+                                users.map((book, index) => <tr key={book._id} className="bg-base-200 my-3">
                                     <th>{index + 1}</th>
                                     <td>{book.userName}</td>
                                     <td>{book.email}</td>

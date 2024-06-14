@@ -10,20 +10,20 @@ const SocialLogin = () => {
     const navigate=useNavigate()
     const location=useLocation()
     const from=location.state?.from?.pathname||"/"
-    const useAxiosPublic=UseAxiosPublic()
+    // const useAxiosPublic=UseAxiosPublic()
 
     const handleGoogleSignIn=()=>{
         googleLogin()
         .then(res=>{
             console.log(res.user)
-            const userInfo={
-                name:res.user.displayName,
-                email:res.user.email
-            }
-            useAxiosPublic.post('/users',userInfo)
-            .then(res=>{
-                console.log(res.data)
-            })
+            // const userInfo={
+            //     name:res.user.displayName,
+            //     email:res.user.email
+            // }
+            // useAxiosPublic.post('/users',userInfo)
+            // .then(res=>{
+            //     console.log(res.data)
+            // })
 
             navigate(from,{replace:true})
 

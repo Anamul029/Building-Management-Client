@@ -5,7 +5,7 @@ const UserProfile = () => {
     const { user } = useContext(AuthContext)
     return (
         <div className=" p-5 text-center my-12">
-            <h2 className="text-4xl font-semibold mb-8 underline">User Profile Information</h2>
+            <h2 className="text-4xl font-semibold mb-8 underline">My Profile Information</h2>
             <div>
                 <div className="avatar">
                     <div className="w-24 md:w-52  rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">

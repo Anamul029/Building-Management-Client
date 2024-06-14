@@ -24,6 +24,7 @@ import {
 import MakeAnouchment from './Components/AdminHome/MakeAnouchment';
 import AgreementRequest from './Components/AdminHome/AgreementRequest';
 import ManageCoupon from './Components/AdminHome/ManageCoupon';
+import AlAnnouchment from './Components/DashBoard/AlAnnouchment';
 const queryClient = new QueryClient()
 const router = createBrowserRouter([
   {
@@ -53,8 +54,12 @@ const router = createBrowserRouter([
     element:<PrivateRoute><DashBoard></DashBoard></PrivateRoute>,
     children:[
       {
-        path:'userProfile',
+        path:'/dashboard/userProfile',
         element:<PrivateRoute><UserProfile></UserProfile></PrivateRoute>,
+      },
+      {
+        path:'userAnnouncment',
+        element:<AlAnnouchment></AlAnnouchment>,
       },
       {
         path:'managemember',

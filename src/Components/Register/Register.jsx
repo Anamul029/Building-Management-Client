@@ -21,24 +21,6 @@ const Register = () => {
         createUser(email, password)
             .then(res => {
                 console.log(res.user)
-                const userInfo = {
-                    name: name,
-                    email: email
-                }
-                axiosPublic.post('/users', userInfo)
-                    .then(res => {
-                        console.log(res.data)
-                        if (res.data.insertedId) {
-                            console.log('user added to the database')
-                            Swal.fire({
-                                position: "top-end",
-                                icon: "success",
-                                title: "Successfully data added",
-                                showConfirmButton: false,
-                                timer: 1500
-                            });
-                        }
-                    })
                 // update profile
                 UpdateProfile(name, photo)
                 Swal.fire({
