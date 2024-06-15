@@ -15,7 +15,8 @@ const ManageMember = () => {
 
     const totalMembers=users.filter(user=>user.role==='member')
 
-    const handleDelete = book => {
+    const handleDelete = user => {
+        console.log(user._id)
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -26,18 +27,10 @@ const ManageMember = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                axiosSecure.delete(`/booking/${book._id}`)
-                    .then(res => {
-                        console.log(res.data)
-                        if (res.data.deletedCount > 0) {
-                            refetch();
-                            Swal.fire({
-                                title: "Deleted!",
-                                text: "Your file has been deleted.",
-                                icon: "success"
-                            });
-                        }
-                    })
+            //    axiosSecure.patch(`/users/${user._id}`)
+            //    .then(res=>{
+            //     console.log(res.data)
+            //    })
             }
         });
     }

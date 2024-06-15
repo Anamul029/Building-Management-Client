@@ -19,7 +19,7 @@ import ManageMember from './Components/AdminHome/ManageMember';
 import {
   QueryClient,
   QueryClientProvider,
- 
+
 } from '@tanstack/react-query'
 import MakeAnouchment from './Components/AdminHome/MakeAnouchment';
 import AgreementRequest from './Components/AdminHome/AgreementRequest';
@@ -27,6 +27,9 @@ import ManageCoupon from './Components/AdminHome/ManageCoupon';
 import AlAnnouchment from './Components/DashBoard/AlAnnouchment';
 import CheckOutForm from './Components/Payment/CheckOutForm';
 import PaymentHistory from './Components/Payment/PaymentHistory';
+import RoleRoute from './Components/PrivateRoute/RoleRoute';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
+
 const queryClient = new QueryClient()
 const router = createBrowserRouter([
   {
@@ -42,8 +45,8 @@ const router = createBrowserRouter([
         element: <Register></Register>,
       },
       {
-           path:'/apartment',
-           element:<Apartment></Apartment>,
+        path: '/apartment',
+        element: <Apartment></Apartment>,
       },
       {
         path: '/login',
@@ -52,40 +55,40 @@ const router = createBrowserRouter([
     ]
   },
   {
-    path:'/dashboard',
-    element:<PrivateRoute><DashBoard></DashBoard></PrivateRoute>,
-    children:[
+    path: '/dashboard',
+    element: <PrivateRoute><DashBoard></DashBoard></PrivateRoute>,
+    children: [
       {
-        path:'/dashboard/userProfile',
-        element:<PrivateRoute><UserProfile></UserProfile></PrivateRoute>,
+        path: '/dashboard/userProfile',
+        element: <RoleRoute><UserProfile></UserProfile></RoleRoute>,
       },
       {
-        path:'userAnnouncment',
-        element:<AlAnnouchment></AlAnnouchment>,
+        path: 'userAnnouncment',
+        element: <RoleRoute><AlAnnouchment></AlAnnouchment></RoleRoute>,
       },
       {
-        path:'managemember',
-        element:<PrivateRoute><ManageMember></ManageMember></PrivateRoute>
+        path: 'managemember',
+        element: <RoleRoute><ManageMember></ManageMember></RoleRoute>,
       },
       {
-        path:'anouchment',
-        element:<MakeAnouchment></MakeAnouchment>
+        path: 'anouchment',
+        element: <RoleRoute><MakeAnouchment></MakeAnouchment></RoleRoute>,
       },
       {
-        path:'agriment',
-        element:<PrivateRoute><AgreementRequest></AgreementRequest></PrivateRoute>
+        path: 'agriment',
+        element: <RoleRoute><AgreementRequest></AgreementRequest></RoleRoute>
       },
       {
-        path:'coupon',
-        element:<PrivateRoute><ManageCoupon></ManageCoupon></PrivateRoute>
+        path: 'coupon',
+        element: <RoleRoute><ManageCoupon></ManageCoupon></RoleRoute>
       },
       {
-        path:'payment',
-        element:<PrivateRoute><CheckOutForm></CheckOutForm></PrivateRoute>
+        path: 'payment',
+        element: <RoleRoute><CheckOutForm></CheckOutForm></RoleRoute>
       },
       {
-        path:'paymentHistory',
-        element:<PrivateRoute><PaymentHistory></PaymentHistory></PrivateRoute>
+        path: 'paymentHistory',
+        element: <RoleRoute><PaymentHistory></PaymentHistory></RoleRoute>
       }
     ]
   }
@@ -93,8 +96,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-    <AuthProvider> <RouterProvider router={router} /></AuthProvider>
-  </QueryClientProvider>,
+    <HelmetProvider>
+      <QueryClientProvider client={queryClient}>
+        <AuthProvider> <RouterProvider router={router} /></AuthProvider>
+      </QueryClientProvider>
+    </HelmetProvider>
   </React.StrictMode>,
 )

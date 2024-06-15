@@ -3,6 +3,7 @@ import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import UseAxiosPublic from "../Hooks/UseAxiosPublic";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
     const { createUser, UpdateProfile } = useContext(AuthContext)
@@ -39,6 +40,9 @@ const Register = () => {
     }
     return (
         <div className="hero min-h-screen flex flex-row-reverse justify-evenly bg-blue-50">
+            <Helmet>
+                <title>Building Management || register</title>
+            </Helmet>
             <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                 <form onSubmit={handleRegister} className="card-body">
                     <div className="form-control">

@@ -52,10 +52,10 @@ const NavBar = () => {
                                 {/* <h5 className="text-sm ml-3">{user.displayName}</h5> */}
                                 <div className="dropdown z-10">
                                     <div tabIndex={0} role="button" className=""> <img className="w-16 h-16 rounded-full" src={user.photoURL} /></div>
-                                    <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+                                    <ul tabIndex={0} className="dropdown-content z-[1]  md:-ml-24 menu p-2 shadow bg-base-100 rounded-box md:w-52">
                                         <li className="mx- p-2">{user.displayName}</li>
-                                        <li><Link to='/dashboard/userProfile'><a className="bg-blue-100 mb-2">Dashboard</a></Link></li>
-                                        <li><button onClick={handleLogOut} className="bg-red-200">LogOut</button></li>
+                                        <li className="bg-blue-100 p-2 rounded-xl"><Link to='/dashboard/userProfile'><button className=" w-20 md:w-full -ml-4 md:ml-0 rounded-xl">Dashboard</button></Link></li>
+                                        <li className="bg-red-200 p-1 rounded-xl"><button onClick={handleLogOut} className="bg-red-200 w-full">LogOut</button></li>
                                     </ul>
                                 </div>
                             </div>

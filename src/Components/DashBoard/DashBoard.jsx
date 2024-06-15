@@ -2,6 +2,7 @@ import { FaBook, FaHome, FaList, FaUsers, FaUtensils } from "react-icons/fa";
 import { FaCarTunnel, FaNoteSticky } from "react-icons/fa6";
 import { NavLink, Outlet } from "react-router-dom";
 import UseRoll from "../Hooks/UseRoll";
+import { Helmet } from "react-helmet-async";
 
 const DashBoard = () => {
     // const isAdmin=false;
@@ -61,6 +62,9 @@ const DashBoard = () => {
     if (role === 'admin') {
         return (
             <div className="flex">
+                <Helmet>
+                    <title>Building Management || dashboard</title>
+                </Helmet>
                 <div className="w-64 min-h-screen bg-blue-400">
                     <ul className="menu">
                         <>
@@ -101,6 +105,9 @@ const DashBoard = () => {
     else if (role === 'guest') {
         return (
             <div className="flex">
+                <Helmet>
+                    <title>Building Management || dashboard</title>
+                </Helmet>
                 <div className="w-64 min-h-screen bg-blue-400">
                     <ul className="menu">
                         <>
@@ -133,6 +140,9 @@ const DashBoard = () => {
     else {
         return (
             <div>
+                <Helmet>
+                    <title>Building Management || dashboard</title>
+                </Helmet>
                 <div className="flex">
                     <div className="w-64 min-h-screen bg-blue-400">
                         <ul className="menu">
@@ -142,11 +152,11 @@ const DashBoard = () => {
                                     My Profile</NavLink></li>
                                 <li><NavLink to="/dashboard/payment">
                                     <FaHome></FaHome>
-                                   Make Payment</NavLink></li>
+                                    Make Payment</NavLink></li>
                                 <li><NavLink to="/dashboard/paymentHistory">
                                     <FaHome></FaHome>
-                                   Payment History</NavLink></li>
-                                    
+                                    Payment History</NavLink></li>
+
                                 <li><NavLink to="/dashboard/userAnnouncment">
                                     <FaNoteSticky></FaNoteSticky>
                                     Announcement</NavLink></li>
