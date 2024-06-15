@@ -64,7 +64,7 @@ const DashBoard = () => {
                 <div className="w-64 min-h-screen bg-blue-400">
                     <ul className="menu">
                         <>
-                            <li><NavLink to="/dashboard/adminProfile">
+                            <li><NavLink to="/dashboard/userProfile">
                                 <FaHome></FaHome>
                                 Admin Profile</NavLink></li>
                             <li><NavLink to="/dashboard/managemember">

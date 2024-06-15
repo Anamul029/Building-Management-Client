@@ -13,6 +13,8 @@ const ManageMember = () => {
         }
     })
 
+    const totalMembers=users.filter(user=>user.role==='member')
+
     const handleDelete = book => {
         Swal.fire({
             title: "Are you sure?",
@@ -56,7 +58,7 @@ const ManageMember = () => {
                         </thead>
                         <tbody>
                             {
-                                users.map((book, index) => <tr key={book._id} className="bg-base-200 my-3">
+                                totalMembers.map((book, index) => <tr key={book._id} className="bg-base-200 my-3">
                                     <th>{index + 1}</th>
                                     <td>{book.userName}</td>
                                     <td>{book.email}</td>

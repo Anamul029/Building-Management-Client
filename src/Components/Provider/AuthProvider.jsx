@@ -2,7 +2,6 @@ import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged,
 import { createContext, useEffect, useState } from "react";
 import auth from "../../Firebase/firebase.config";
 import UseAxiosPublic from "../Hooks/UseAxiosPublic";
-// import auth from "../Firebase/firebase.config";
 
 export const AuthContext = createContext(null)
 const googleProvider= new GoogleAuthProvider()
@@ -56,8 +55,10 @@ const AuthProvider = ({ children }) => {
                 const userInfo={email:currentUser.email}
                 axiosPublic.post('/jwt',userInfo)
                 .then(res=>{
+                    console.log(res.data.token)
                     localStorage.setItem('Access-token',res.data.token)
                 })
+
             }
             else{
                 localStorage.removeItem('Access-token');

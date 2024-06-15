@@ -25,6 +25,8 @@ import MakeAnouchment from './Components/AdminHome/MakeAnouchment';
 import AgreementRequest from './Components/AdminHome/AgreementRequest';
 import ManageCoupon from './Components/AdminHome/ManageCoupon';
 import AlAnnouchment from './Components/DashBoard/AlAnnouchment';
+import CheckOutForm from './Components/Payment/CheckOutForm';
+import PaymentHistory from './Components/Payment/PaymentHistory';
 const queryClient = new QueryClient()
 const router = createBrowserRouter([
   {
@@ -76,6 +78,14 @@ const router = createBrowserRouter([
       {
         path:'coupon',
         element:<PrivateRoute><ManageCoupon></ManageCoupon></PrivateRoute>
+      },
+      {
+        path:'payment',
+        element:<PrivateRoute><CheckOutForm></CheckOutForm></PrivateRoute>
+      },
+      {
+        path:'paymentHistory',
+        element:<PrivateRoute><PaymentHistory></PaymentHistory></PrivateRoute>
       }
     ]
   }
