@@ -28,15 +28,15 @@ const MakeAnouchment = () => {
 
     return (
         <div>
-            <h1 className="text-4xl font-semibold underline my-10">Make Announcement Here</h1>
+            <h1 className="text-4xl font-semibold underline my-10"> Make Announcement</h1>
             <form onSubmit={handleSubmit}>
                 <div className="my-4">
                     <label>Title:</label><br />
-                    <input type="text" name="title" placeholder="add title here" className="input input-bordered input-primary w-4/5 mx-auto " />
+                    <input type="text" name="title" placeholder="add title here" required className="input input-bordered input-primary w-4/5 mx-auto " />
                 </div>
                 <div className="my-4">
                     <label>Description:</label> <br />
-                    <textarea name="description" className="textarea w-4/5 mx-auto h-80 textarea-success" placeholder="add description here"></textarea>
+                    <textarea name="description" className="textarea w-4/5 mx-auto h-80 textarea-success" required placeholder="add description here"></textarea>
                 </div>
                 <button className="btn btn-primary">Add Annouchment</button>
             </form>

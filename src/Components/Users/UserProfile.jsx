@@ -54,8 +54,8 @@ const UserProfile = () => {
                         </div>
                     </div>
                 </div>
-                <h3 className="md:text-3xl Md:font-semibold"> {user.email}</h3>
-                <h3 className="Md:text-3xl md:font-semibold">{user.displayName}</h3>
+                <h3 className="md:text-3xl md:font-semibold">Email: {user.email}</h3>
+                <h3 className="md:text-3xl md:font-semibold">Name: {user.displayName}</h3>
             </div>
         );
     }
