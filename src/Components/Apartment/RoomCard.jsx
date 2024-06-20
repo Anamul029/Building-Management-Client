@@ -23,7 +23,7 @@ const RoomCard = ({ room }) => {
     const { apartmentImage, _id, apartmentNo, blockName, floorNo, rent } = room
     // const axiosSecure=UseAxiosSecure()
     const handleAddInfo = () => {
-        if (UserAddRoom.length >0) {
+        if (UserAddRoom.length>0) {
             Swal.fire({
                 icon: "error",
                 title: "You have already select one room...",

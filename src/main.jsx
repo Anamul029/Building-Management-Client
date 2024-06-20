@@ -25,10 +25,12 @@ import MakeAnouchment from './Components/AdminHome/MakeAnouchment';
 import AgreementRequest from './Components/AdminHome/AgreementRequest';
 import ManageCoupon from './Components/AdminHome/ManageCoupon';
 import AlAnnouchment from './Components/DashBoard/AlAnnouchment';
-import CheckOutForm from './Components/Payment/CheckOutForm';
+// import CheckOutForm from './Components/Payment/CheckOutForm';
 import PaymentHistory from './Components/Payment/PaymentHistory';
 import RoleRoute from './Components/PrivateRoute/RoleRoute';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import PaymentInfoForm from './Components/Payment/PaymentInfoForm';
+import Payment from './Components/Payment/Payment';
 
 const queryClient = new QueryClient()
 const router = createBrowserRouter([
@@ -82,13 +84,19 @@ const router = createBrowserRouter([
         path: 'coupon',
         element: <RoleRoute><ManageCoupon></ManageCoupon></RoleRoute>
       },
-      {
-        path: 'payment',
-        element: <RoleRoute><CheckOutForm></CheckOutForm></RoleRoute>
-      },
+     
       {
         path: 'paymentHistory',
         element: <RoleRoute><PaymentHistory></PaymentHistory></RoleRoute>
+      },
+      // member info
+      {
+        path:'payment',
+        element:<RoleRoute><PaymentInfoForm></PaymentInfoForm></RoleRoute>
+      },
+      {
+        path: 'makePayment',
+        element: <RoleRoute><Payment></Payment></RoleRoute>
       }
     ]
   }

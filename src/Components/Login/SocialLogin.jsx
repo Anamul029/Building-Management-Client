@@ -16,15 +16,6 @@ const SocialLogin = () => {
         googleLogin()
         .then(res=>{
             console.log(res.user)
-            // const userInfo={
-            //     name:res.user.displayName,
-            //     email:res.user.email
-            // }
-            // useAxiosPublic.post('/users',userInfo)
-            // .then(res=>{
-            //     console.log(res.data)
-            // })
-
             navigate(from,{replace:true})
 
         })

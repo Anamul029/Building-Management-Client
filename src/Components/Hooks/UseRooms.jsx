@@ -1,16 +1,20 @@
 import { useEffect, useState } from "react";
+import UseAxiosPublic from "./UseAxiosPublic";
 
 const UseRooms = () => {
     const [rooms,setRooms]=useState([])
     const [loading,setLoading]=useState(true)
+    const axiosPublic=UseAxiosPublic()
     useEffect(()=>{
-        fetch('http://localhost:5000/rooms')
-        .then(res=>res.json())
+        // fetch('https://building-management-server-indol.vercel.app/rooms')
+        axiosPublic.get('/rooms')
+        // .then(res=>res.json())
         .then(data=>{
-            setRooms(data);
+            console.log(data.data)
+            setRooms(data.data);
             setLoading(false)
         })
-    },[])
+    },[axiosPublic])
     return [rooms,loading]
    
 };
