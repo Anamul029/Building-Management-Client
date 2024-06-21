@@ -3,6 +3,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import UseAxiosSecure from "../Hooks/UseAxiosSecure";
 import UseBooking from "../Hooks/UseBooking";
+import Swal from "sweetalert2";
 // import UseAxiosSecure from "../Hooks/UseAxiosSecure";
 
 
@@ -79,6 +80,13 @@ const CheckOutForm = () => {
             if (paymentIntent.status === 'succeeded') {
                 console.log('transection id', paymentIntent.id)
                 setTransectionId(paymentIntent.id);
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Successfully Payment Completed",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
                 // now save the payment info in the database
                 const Payment={
                     email:user?.email,
