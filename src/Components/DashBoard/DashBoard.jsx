@@ -10,11 +10,11 @@ const DashBoard = () => {
     console.log(role)
     if (role === 'admin') {
         return (
-            <div className="flex">
+            <div className="flex flex-col md:flex-row">
                 <Helmet>
                     <title>Building Management || dashboard</title>
                 </Helmet>
-                <div className="w-64 min-h-screen bg-blue-400">
+                <div className="md:w-64 min-h-screen bg-blue-400">
                     <ul className="menu">
                         <>
                             <li><NavLink to="/dashboard/userProfile">
@@ -53,11 +53,11 @@ const DashBoard = () => {
     }
     else if (role === 'guest') {
         return (
-            <div className="flex">
+            <div className="flex flex-col md:flex-row">
                 <Helmet>
                     <title>Building Management || dashboard</title>
                 </Helmet>
-                <div className="w-64 min-h-screen bg-blue-400">
+                <div className="md:w-64 min-h-screen bg-blue-400">
                     <ul className="menu">
                         <>
                             <li><NavLink to="/dashboard/userProfile">
@@ -93,7 +93,7 @@ const DashBoard = () => {
                     <title>Building Management || dashboard</title>
                 </Helmet>
                 <div className="flex flex-col md:flex-row">
-                    <div className="w-64 min-h-screen bg-blue-400">
+                    <div className="md:w-64 min-h-screen bg-blue-400">
                         <ul className="menu">
                             <>
                                 <li><NavLink to="/dashboard/userProfile">
