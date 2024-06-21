@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import BuildingDetail from "./BuildingDetail";
 import Location from "./Location";
 import Slider from "./Slider";
+import Coupon from "./Coupon";
 
 
 const Home = () => {
@@ -13,6 +14,7 @@ const Home = () => {
             <Slider></Slider>
             <BuildingDetail></BuildingDetail>
             <Location></Location>
+            <Coupon></Coupon>
         </div>
     );
 };
