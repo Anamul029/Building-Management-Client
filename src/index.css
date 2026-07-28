@@ -1,3 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans antialiased bg-base-200 text-base-content;
+  }
+}
+
+@layer components {
+  .page-title {
+    @apply text-2xl md:text-3xl font-bold text-base-content tracking-tight;
+  }
+
+  .page-subtitle {
+    @apply text-sm md:text-base text-base-content/60 mt-1;
+  }
+
+  .section-heading {
+    @apply text-2xl md:text-4xl font-bold text-center text-base-content tracking-tight;
+  }
+
+  .section-heading::after {
+    content: '';
+    @apply block w-16 h-1 bg-primary mx-auto mt-3 rounded-full;
+  }
+
+  .content-card {
+    @apply bg-base-100 rounded-2xl shadow-card border border-base-300/50 p-6 transition-shadow duration-300 hover:shadow-card-hover;
+  }
+
+  .stat-card {
+    @apply bg-base-100 rounded-xl shadow-card border border-base-300/40 p-5 text-center transition-all duration-300 hover:shadow-card-hover hover:-translate-y-0.5;
+  }
+
+  .form-card {
+    @apply bg-base-100 rounded-2xl shadow-card border border-base-300/50 p-6 md:p-8;
+  }
+
+  .data-table {
+    @apply table w-full;
+  }
+
+  .data-table thead tr {
+    @apply bg-primary/10 text-base-content;
+  }
+
+  .data-table thead th {
+    @apply font-semibold text-sm uppercase tracking-wide;
+  }
+
+  .data-table tbody tr {
+    @apply border-b border-base-300/50 hover:bg-base-200/60 transition-colors duration-150;
+  }
+
+  .sidebar-nav-link {
+    @apply flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-200;
+  }
+
+  .sidebar-nav-link-active {
+    @apply bg-primary text-primary-content shadow-sm;
+  }
+
+  .sidebar-nav-link-inactive {
+    @apply text-base-content/70 hover:bg-base-300/60 hover:text-base-content;
+  }
+
+  .btn-gradient {
+    @apply btn bg-primary hover:bg-primary/90 text-primary-content border-none shadow-sm hover:shadow-md transition-all duration-200;
+  }
+
+  .input-styled {
+    @apply input input-bordered w-full bg-base-100 focus:border-primary focus:outline-none transition-colors duration-200;
+  }
+
+  .select-styled {
+    @apply select select-bordered w-full bg-base-100 focus:border-primary focus:outline-none transition-colors duration-200;
+  }
+}
+
+/* Swiper overrides */
+.mySwiper {
+  @apply rounded-2xl overflow-hidden shadow-card;
+}
+
+.mySwiper .swiper-pagination-bullet-active {
+  @apply bg-primary;
+}
+
+.mySwiper .swiper-button-next,
+.mySwiper .swiper-button-prev {
+  @apply text-primary;
+}

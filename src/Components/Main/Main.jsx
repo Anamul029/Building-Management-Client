@@ -5,9 +5,13 @@ import Footer from "../Footer/Footer";
 
 const Main = () => {
     return (
-        <div className="w-full container mx-auto p-3 md:p-6">
-            <NavBar></NavBar>
-            <Outlet></Outlet>
+        <div className="min-h-screen flex flex-col">
+            <div className="w-full max-w-7xl mx-auto px-4 md:px-6 py-4 flex-1">
+                <NavBar></NavBar>
+                <main className="mt-6 animate-fade-in">
+                    <Outlet></Outlet>
+                </main>
+            </div>
             <Footer></Footer>
         </div>
     );

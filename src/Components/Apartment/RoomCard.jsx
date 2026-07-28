@@ -75,15 +75,17 @@ const RoomCard = ({ room }) => {
 
     }
     return (
-        <div className="card card-compact bg-base-100 shadow-xl">
-            <figure><img className="w-full" src="https://i.ibb.co/0sXp5hC/15.jpg" alt="Shoes" /></figure>
-            <div className="card-body">
-                <h2 className="card-title">Room Number:{apartmentNo}</h2>
-                <h2>Block Name:{blockName}</h2>
-                <h2>Floor No:{floorNo}</h2>
-                <h2>Rent:{rent}</h2>
-                <div className="card-actions justify-end">
-                    <button onClick={handleAddInfo} className="btn btn-primary">Agreement</button>
+        <div className="card bg-base-100 shadow-card border border-base-300/50 rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1">
+            <figure className="overflow-hidden"><img className="w-full h-48 object-cover transition-transform duration-500 hover:scale-105" src="https://i.ibb.co/0sXp5hC/15.jpg" alt="Apartment room" /></figure>
+            <div className="card-body p-5">
+                <h2 className="card-title text-lg font-bold">Room {apartmentNo}</h2>
+                <div className="space-y-1.5 text-sm text-base-content/70">
+                    <p><span className="font-medium text-base-content">Block:</span> {blockName}</p>
+                    <p><span className="font-medium text-base-content">Floor:</span> {floorNo}</p>
+                    <p><span className="font-medium text-base-content">Rent:</span> <span className="text-primary font-bold">{rent}</span></p>
+                </div>
+                <div className="card-actions justify-end mt-3">
+                    <button onClick={handleAddInfo} className="btn btn-primary btn-sm">Agreement</button>
                 </div>
             </div>
         </div>

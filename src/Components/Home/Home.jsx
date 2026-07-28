@@ -7,7 +7,7 @@ import Coupon from "./Coupon";
 
 const Home = () => {
     return (
-        <div>
+        <div className="space-y-16 md:space-y-20 pb-8">
             <Helmet>
                 <title>Building Management || Home</title>
             </Helmet>

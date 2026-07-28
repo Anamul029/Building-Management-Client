@@ -10,7 +10,11 @@ const Apartment = () => {
             <Helmet>
                 <title>Building Management || apartment</title>
             </Helmet>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="mb-8">
+                <h2 className="page-title">Available Apartments</h2>
+                <p className="page-subtitle">Browse available units and request an agreement</p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {
                     rooms.map(room=><RoomCard room={room} key={room._id}></RoomCard>)
                 }
